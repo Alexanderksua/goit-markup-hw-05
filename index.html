@@ -73,9 +73,20 @@
         <div class="hero-group">
           <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
           <!-- BUTTON -->
-          <button class="btn-hero" type="button">Замовити послугу</button>
+          <button class="btn-hero" type="button" data-modal-open>Замовити послугу</button>
         </div>
       </div>
+
+      <div class="backdrop is-hidden" data-modal>
+        <div class="modal" data-modal-close>
+          <button class="close" type="button" data-modal-close>
+            <svg class="button-icon" width="11" height="11" aria-label="cross">
+              <use href="./images/icons.svg#icon-cross-modal"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+
     </section>
 
     <!-- Секция описания качеств Студии-->
@@ -150,14 +161,23 @@
           <li class="item features-item">
             <img src="./images/img_1_370x294.jpg"
               alt="ПК, планшет, клавіатура, блокнот, миша, монітор, карандаш, окуляри" width="370">
+            <div class="over-text">
+              <p>Десктопні додатки</p>
+            </div>
           </li>
           <li class="item features-item">
             <img src="./images/img_2_370x294.jpg"
               alt="Смартфон, ноутбук, монітор, шаблони візуального вигляду застосунків" width="370">
+            <div class="over-text">
+              <p>Мобільні додатки</p>
+            </div>
           </li>
           <li class="item features-item">
             <img src="./images/img_3_370x294.jpg" alt="планшет, палітра кольорів, клавіатура, миша, мак про"
               width="370">
+            <div class="over-text">
+              <p>Дизайнерські рішення</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -480,7 +500,7 @@
       </div>
     </div>
   </footer>
-
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>
