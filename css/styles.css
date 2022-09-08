@@ -573,10 +573,10 @@ button.close {
       background-color: var(--ligth-gray-bkgr-team);
       border-radius: 4px;
       cursor: pointer;
-      /*  Задаём значения перехода *** По раздельности не работает всё, только что то одно *** */
-      transition-property: color, background-color, box-shadow;
-      transition-duration: var(--animation-timing);
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      /*  Задаём значения перехода */
+      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1), 
+      background-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1), 
+      box-shadow var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover,
