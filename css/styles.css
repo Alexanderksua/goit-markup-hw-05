@@ -43,7 +43,7 @@ ul {
       --hero-bg: #C4C4C4;
       --hero-bg-overlay: rgba(47, 48, 58, 0.4);
       --clients-icons-light-gray: #AFB1B8;
-      --animation-timing: 250ms;
+      --transition-timing: 250ms;
 }
 
 
@@ -100,7 +100,7 @@ body {
 .contacts-icon {
       fill: var(--light-gray);
       /*  Задаём значения перехода  */
-      transition: fill var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-group,
@@ -156,14 +156,14 @@ body {
       letter-spacing: 0.02em;
       color: var(--dark-gray);
       /*  Задаём значения перехода  */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
 .header-group>.list.contacts a {
       color: var(--light-gray);
       /*  Задаём значения перехода  */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-group>.nav-group a:hover,
@@ -258,8 +258,9 @@ body {
       padding: 10px 32px;
       cursor: pointer;
       /*  Задаём значения перехода  */
-      transition: box-shadow var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
-      transition: background-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: box-shadow var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1),
+            background-color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .btn-hero:hover,
@@ -277,7 +278,7 @@ body {
       height: 100%;
       background: rgba(0, 0, 0, 0.2);
       opacity: 1;
-      transition: opacity var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 button.close {
@@ -391,7 +392,7 @@ button.close {
 .over-text {
       position: absolute;
       display: flex;
-      /* display: inline-block; */
+      left: 0;
       width: 100%;
       height: 70px;
       bottom: 0;
@@ -503,10 +504,17 @@ button.close {
       padding-top: 94px;
       padding-bottom: 94px;
       /*  Задаём значения перехода  */
-      transition: border-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: border-color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clients-list {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
 }
 
 .clients-item {
+
       flex-basis: calc((100% - 150px)/6);
 }
 
@@ -519,13 +527,8 @@ button.close {
       align-items: center;
       justify-content: center;
       /*  Задаём значения перехода  */
-      transition: border-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
-}
+      transition: border var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 
-.clients-list {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
 }
 
 .clients-icons {
@@ -533,14 +536,16 @@ button.close {
       justify-content: center;
       fill: var(--clients-icons-light-gray);
       /*  Задаём значения перехода  */
-      transition: fill var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clients-item:hover .clients-link,
-.clients-item:hover .clients-icons,
-.clients-item:focus .clients-link,
-.clients-item:focus .clients-icons {
+.clients-link:hover,
+.clients-link:focus {
       border-color: var(--blue);
+}
+
+.clients-link:hover .clients-icons,
+.clients-link:focus .clients-icons {
       fill: var(--blue);
 }
 
@@ -574,9 +579,9 @@ button.close {
       border-radius: 4px;
       cursor: pointer;
       /*  Задаём значения перехода */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1), 
-      background-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1), 
-      box-shadow var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition-property: color, background-color, box-shadow;
+      transition-duration: var(--transition-timing);
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover,
@@ -586,7 +591,6 @@ button.close {
       box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
             0px 1px 2px rgba(0, 0, 0, 0.08),
             0px 2px 2px rgba(0, 0, 0, 0.12);
-      border-radius: 4px;
 
 }
 
@@ -598,12 +602,13 @@ button.close {
 
 .overly-hover-text {
       position: absolute;
-      display: block;
+      display: flex;
+      align-items: center;
       transform: translateY(0px);
       left: 0;
       width: 100%;
-
-      padding: 63px 24px;
+      height: 100%;
+      padding: 0 24px;
 
       font-weight: 400;
       font-size: 18px;
@@ -613,13 +618,23 @@ button.close {
       color: var(--light-white);
       background: rgba(33, 150, 243, 0.9);
       /*  Задаём значения перехода  */
-      transition: transform var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
-.cards-item:hover .overly-hover-text {
+.cards-item-link:hover .overly-hover-text,
+.cards-item-link:focus .overly-hover-text {
       transform: translateY(-294px);
+
 }
+
+.cards-item-link:hover,
+.cards-item-link:focus {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+            0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 
 .container>.list.cards>.cards-item>div {
       width: calc((100% - (2*30px)/3));
@@ -633,25 +648,34 @@ button.close {
 
 .cards-item {
       background: var(--light-white);
-      border-bottom: 1px solid var(--white-card-p);
+
+      /* border-bottom: 1px solid var(--white-card-p); */
 }
 
 .cards-item-link {
       display: block;
       /*  Задаём значения перехода  */
-      transition: box-shadow var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: box-shadow var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cards-item-link:hover,
+/* .cards-item-link:hover,
 .cards-item-link:focus {
 
       box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
             0px 4px 4px rgba(0, 0, 0, 0.06),
             1px 4px 6px rgba(0, 0, 0, 0.16);
-}
+} */
 
 .cards-item img {
       display: block;
+}
+
+.card-text-content {
+      border-right: 1px solid var(--white-card-p);
+      border-bottom: 1px solid var(--white-card-p);
+      border-left: 1px solid var(--white-card-p);
+
+
 }
 
 .cards-item .card-text-content {
@@ -715,14 +739,14 @@ button.close {
 
       color: var(--light-white);
       /*  Задаём значения перехода  */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-item .contacts-item-mailto,
 .contacts-item .contacts-item-tel {
       color: var(--white-60);
       /*  Задаём значения перехода  */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address .list .item:not(:last-child) {
@@ -744,7 +768,7 @@ button.close {
       justify-content: center;
       color: var(--clients-icons-light-gray);
       /*  Задаём значения перехода  */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-title {
@@ -766,15 +790,15 @@ button.close {
       color: var(--light-gray);
       background-color: var(--light-white);
       /*  Задаём значения перехода  */
-      transition: color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
-      transition: background-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1),
+            background-color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
 .social-icon {
       fill: currentColor;
       /*  Задаём значения перехода  */
-      transition: fill var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -820,14 +844,15 @@ button.close {
       background-color: rgba(255, 255, 255, 0.1);
       fill: var(--light-white);
       /*  Задаём значения перехода  */
-      transition: fill var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
-      transition: background-color var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1),
+            background-color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .footer-social-icon {
       fill: var(--light-white);
       /*  Задаём значения перехода  */
-      transition: fill var(--animation-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link:hover,
@@ -912,23 +937,58 @@ data-modal - на бекдроп модального окна. После че�
 
 */
 
-.boxy {
-      width: 200px;
-      /*height: 200px; */
-      border-radius: 10px;
-      color: tomato;
-      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-            0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+.warper {
 
-      /*  Задаём значения перехода  */
-      transition-property: color;
-      transition-duration: 2000ms;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-delay: 1000ms;
+      outline: 1px dashed rgb(21, 0, 255);
 }
 
-/* При ховере меняем значения анимируемых свойств */
-.boxy:hover {
-      color: teal;
-      /* transform: rotate(180deg); */
+.boxy {
+
+      outline: 1px dashed rgb(0, 255, 30);
+}
+
+.boxy-outter {
+      display: flex;
+
+      outline: 1px dashed rgb(255, 247, 0);
+}
+
+.boxy-inner {
+      display: block;
+      width: 100%;
+      height: 500px;
+      background-color: #ccc;
+      justify-content: center;
+      align-items: center;
+      outline: 1px dashed rgb(174, 0, 255);
+}
+
+.boxy-inner-list {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: #860055;
+}
+
+.boxy-inner-item {
+      display: block;
+      outline: 1px dashed red;
+}
+
+.boxy-inner-link,
+.boxy-inner-link-text {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: calc(28 / 18);
+      text-align: center;
+
+      letter-spacing: 0.03em;
+
+      color: #FFFFFF;
+      fill: #000dff;
+      outline: 1px dashed red;
 }
