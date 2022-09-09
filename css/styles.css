@@ -37,11 +37,11 @@ ul {
       --light-white: #ffffff;
       --white-card-p: #eeeeee;
       --white-br-bottom: #ececec;
-      --white-60: rgba(255, 255, 255, 0.6);
+      --white-60: rgba(255 255 255 / 0.6);
       --white-bkgr: #f5f5f5;
       --ligth-gray-bkgr-team: #F5F4FA;
       --hero-bg: #C4C4C4;
-      --hero-bg-overlay: rgba(47, 48, 58, 0.4);
+      --hero-bg-overlay: rgba(47 48 58 / 0.4);
       --clients-icons-light-gray: #AFB1B8;
       --transition-timing: 250ms;
 }
@@ -98,11 +98,17 @@ body {
 }
 
 .contacts-icon {
+      display: block;
+      margin-right: 10px;
       fill: var(--light-gray);
       /*  Задаём значения перехода  */
       transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.link-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
 .header-group,
 .header-group .list.contacts,
 .header-group .list.pages {
@@ -160,27 +166,31 @@ body {
 
 }
 
-.header-group>.list.contacts a {
-      color: var(--light-gray);
+/* .header-group>.list.contacts a  */
+.link-div{
+      color:var(--light-gray);
+      fill: var(--light-gray);
       /*  Задаём значения перехода  */
-      transition: color var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
+      transition-property: color, fill;
+      transition-duration:  var(--transition-timing);
+      transition-timing-function:  cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.header-group>.nav-group a:hover,
-.header-group>.nav-group a:focus,
-.header-group>.list.contacts a:hover,
-.header-group>.list.contacts a:focus {
+a:hover .link-div .contacts-icon,
+a:hover .link-div,
+a:focus .link-div .contacts-icon,
+a:focus .link-div{
       color: var(--blue);
-}
-
-.header-group .contacts-item:hover .contacts-icon,
-.header-group .contacts-item:focus .contacts-icon {
       fill: var(--blue);
 }
-
 .list.pages>.item.curent a {
       color: var(--blue);
 }
+
+.header-group>.nav-group a:hover,
+.header-group>.nav-group a:focus {
+      color: var(--blue);
+}
+
 
 .pages-item:not(:last-child),
 .contacts-item:not(:last-child) {
@@ -214,8 +224,8 @@ body {
 /* STUDIO main */
 /* HERO */
 .hero {
-      background: linear-gradient(90deg, rgba(47, 48, 58, 0.4) 0%,
-                  rgba(47, 48, 58, 0.4) 0%),
+      background: linear-gradient(90deg, rgba(47 48 58 / 0.4) 0%,
+                  rgba(47 48 58 / 0.4) 0%),
             url('../images/bg-Img.png');
       background-repeat: no-repeat;
       background-position: center;
@@ -266,7 +276,7 @@ body {
 .btn-hero:hover,
 .btn-hero:focus {
       background: var(--blue-btn-active);
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 4px 4px rgba(0 0 0 / .15);
 }
 
 /* MODAL WINDOW */
@@ -276,7 +286,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0 0 0 / .2);
       opacity: 1;
       transition: opacity var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -294,7 +304,7 @@ button.close {
       height: 30px;
 
       background-color: var(--light-white);
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0 0 0 / .1);
       border-radius: 50%;
 
       cursor: pointer;
@@ -318,9 +328,9 @@ button.close {
       min-height: 581px;
       /* padding: 8px; */
       background: var(--light-white);
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-            0px 1px 1px rgba(0, 0, 0, 0.14),
-            0px 2px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 1px 3px rgba(0 0 0 / .12),
+            0px 1px 1px rgba(0 0 0 / .14),
+            0px 2px 1px rgba(0 0 0 / .2);
       border-radius: 4px;
 }
 
@@ -404,7 +414,7 @@ button.close {
       padding-right: 0.5em; */
       text-align: center;
 
-      background: rgba(47, 48, 58, 0.8);
+      background: rgba(47 48 58 / .8);
       mix-blend-mode: normal;
 }
 
@@ -470,9 +480,9 @@ button.close {
 
 .team-list .team-item {
       background: var(--light-white);
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-            0px 1px 1px rgba(0, 0, 0, 0.14),
-            0px 2px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 1px 3px rgba(0 0 0 / .12),
+            0px 1px 1px rgba(0 0 0 / .14),
+            0px 2px 1px rgba(0 0 0 / .2);
       border-radius: 0px 0px 4px 4px;
 }
 
@@ -588,9 +598,9 @@ button.close {
 .btn:focus {
       background: var(--blue);
       color: var(--light-white);
-      box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
-            0px 1px 2px rgba(0, 0, 0, 0.08),
-            0px 2px 2px rgba(0, 0, 0, 0.12);
+      box-shadow: 0px 3px 1px rgba(0 0 0 / .1),
+            0px 1px 2px rgba(0 0 0 / .08),
+            0px 2px 2px rgba( 0 0 0 / .12);
 
 }
 
@@ -616,7 +626,7 @@ button.close {
       letter-spacing: 0.03em;
 
       color: var(--light-white);
-      background: rgba(33, 150, 243, 0.9);
+      background: rgba(33 150 243 / .9);
       /*  Задаём значения перехода  */
       transition: transform var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -624,15 +634,15 @@ button.close {
 
 .cards-item-link:hover .overly-hover-text,
 .cards-item-link:focus .overly-hover-text {
-      transform: translateY(-294px);
+      transform: translateY(-100%);
 
 }
 
 .cards-item-link:hover,
 .cards-item-link:focus {
-      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-            0px 4px 4px rgba(0, 0, 0, 0.06),
-            1px 4px 6px rgba(0, 0, 0, 0.16);
+      box-shadow: 0px 1px 1px rgba(0 0 0 / .12),
+            0px 4px 4px rgba(0 0 0 / .06),
+            1px 4px 6px rgba(0 0 0 / .16);
 }
 
 
@@ -704,8 +714,9 @@ button.close {
 /* FOOTER */
 .footer {
       display: flex;
-      background: rgb(47, 48, 58);
-      background-image: linear-gradient(90deg, rgba(47, 48, 58, 0.4) 0%, rgba(47, 48, 58, 0.4) 0%);
+      background: rgb(47 48 58);
+      background-image: linear-gradient(90deg, rgba(47 48 58 / .4) 0%, 
+      rgba(47 48 58 / .4) 0%);
       margin: 0;
       padding-top: 60px;
       padding-bottom: 60px;
@@ -841,7 +852,7 @@ button.close {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255 255 255 / .1);
       fill: var(--light-white);
       /*  Задаём значения перехода  */
       transition: fill var(--transition-timing) cubic-bezier(0.4, 0, 0.2, 1),
@@ -936,59 +947,15 @@ data-modal - на бекдроп модального окна. После че�
       })();
 
 */
-
-.warper {
-
-      outline: 1px dashed rgb(21, 0, 255);
-}
-
-.boxy {
-
-      outline: 1px dashed rgb(0, 255, 30);
-}
-
-.boxy-outter {
-      display: flex;
-
-      outline: 1px dashed rgb(255, 247, 0);
-}
-
-.boxy-inner {
-      display: block;
-      width: 100%;
-      height: 500px;
-      background-color: #ccc;
-      justify-content: center;
-      align-items: center;
-      outline: 1px dashed rgb(174, 0, 255);
-}
-
-.boxy-inner-list {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      background-color: #860055;
-}
-
-.boxy-inner-item {
-      display: block;
-      outline: 1px dashed red;
-}
-
-.boxy-inner-link,
-.boxy-inner-link-text {
+form{
       display: flex;
       flex-direction: column;
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: calc(28 / 18);
-      text-align: center;
+}
+input {
+      padding: 8px;
+      font-family: inherit;
+}
 
-      letter-spacing: 0.03em;
-
-      color: #FFFFFF;
-      fill: #000dff;
-      outline: 1px dashed red;
+label{
+      margin-bottom: 8px;
 }
